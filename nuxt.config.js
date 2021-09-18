@@ -2,7 +2,7 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'universal',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -30,6 +30,8 @@ export default {
   plugins: [
   ],
 
+  middleware: ['auth'],
+
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
@@ -39,16 +41,45 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    [
+    '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: process.env.FIREBASE_API_KEY,
+          authDomain: "todo-app-vuetify-6bdd8.firebaseapp.com",
+          projectId: "todo-app-vuetify-6bdd8",
+          storageBucket: "todo-app-vuetify-6bdd8.appspot.com",
+          messagingSenderId: process.env.FIREBASE_MESSAGGING_SENDER_ID,
+          appId: process.env.FIREBASE_APP_ID
+        },
+        services: {
+          auth: {
+            persistence: 'local', // default
+            initialize: {
+              // onAuthStateChangedAction: 'onAuthStateChangedAction',
+              subscribeManually: false,
+            },
+          }
+        }
+    },
+  ],
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
 
+  router: {
+    middleware: ['auth']
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseUrl: process.env.API_URL
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -71,5 +102,5 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
 }
