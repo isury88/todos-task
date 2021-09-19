@@ -12,7 +12,8 @@ export default {
    */
   target: "static",
   router: {
-    base: "/login"
+    base: "/login",
+    middleware: ['auth']
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -82,10 +83,6 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
-
-  router: {
-    middleware: ['auth']
-  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
