@@ -12,7 +12,7 @@ export default {
    */
   target: "static",
   router: {
-    base: "/login",
+    base: "/todos-task/",
     middleware: ['auth']
   },
 
