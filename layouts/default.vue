@@ -8,9 +8,9 @@
       <v-spacer />
 
 
-      <div v-if="user">
-        <span>{{ user.email }}</span>
-        <v-btn text @click="logout">Logout</v-btn>
+      <div v-if="user" class="d-flex align-center flex-wrap">
+        <span class="text-truncate mobile-truncate">{{ user.email }}</span>
+        <v-btn text @click="logout"><v-icon>mdi-logout</v-icon></v-btn>
       </div>
       <div v-else>
         <v-btn text @click="$router.push('/login')">Login</v-btn>
@@ -53,3 +53,11 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.mobile-truncate {
+max-width: 100%;
+  @media (max-width: 460px) {
+     max-width: 120px;
+  }
+}
+</style>
