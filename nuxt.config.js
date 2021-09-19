@@ -1,11 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-   /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: "universal",
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
@@ -13,7 +8,6 @@ export default {
   target: "static",
   router: {
     base: "/todos-task/",
-    middleware: ['auth']
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -41,8 +35,6 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
-
-  middleware: ['auth'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
