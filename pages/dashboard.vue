@@ -4,8 +4,8 @@
       <v-col cols="12" sm="8" md="6" class="mx-auto">
         <h1 class="my-5 text-center">Welcome {{ user ? user.email : '' }} to your Dashboard</h1>
         <div class="d-flex align-center">
-          <v-text-field v-model="search" class="pa-5" placeholder="Search Todo by title">
-            Search by title
+          <v-text-field v-model="search" class="pa-5" placeholder="Search Todo by content">
+            Search by content
           </v-text-field>
            <v-select
             v-model="userId"
@@ -60,7 +60,7 @@ export default {
 computed: {
   filteredToDosSearch() {
     return  this.filteredToDos.filter((todo) => {
-      return todo.title.toLowerCase().match(this.search)
+      return todo.title.toLowerCase().match(this.search.toLowerCase())
     })
   }
   },
