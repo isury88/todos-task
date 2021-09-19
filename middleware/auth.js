@@ -3,7 +3,7 @@ export default function ({ app, redirect }) {
       // User is logged in
     }else{
       // User is not logged in
-    return redirect('/login')
+    // return redirect('/login')
     }
 }
 

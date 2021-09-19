@@ -67,6 +67,11 @@ computed: {
 
   mounted() {
     this.getTodosFromApi()
+
+    if (this.$fire.auth.currentUser === null) {
+      // User is not logged in
+      this.$router.push('/')
+    }
   },
 
   methods: {

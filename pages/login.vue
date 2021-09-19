@@ -65,6 +65,13 @@ export default {
     }
   },
 
+  mounted() {
+    if (this.$fire.auth.currentUser !== null) {
+      // User is logged in
+      this.$router.push('/dashboard')
+    }
+  },
+
   methods: {
     async loginUser(auth) {
       const that = this
