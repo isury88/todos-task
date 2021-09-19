@@ -7,7 +7,7 @@
   </v-row>
   <v-row>
     <v-col cols="10" md="6" class="mx-auto mt-5">
-     <v-form v-model="valid">
+     <v-form v-model="valid" @submit.prevent="loginUser(auth)">
       <v-card elevation="4" shaped>
         <v-card-title>Login</v-card-title>
         <v-card-subtitle>Login to access your Todo Dashboard</v-card-subtitle>
@@ -27,7 +27,7 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn text :disabled="!valid" @click="loginUser(auth)">Login</v-btn>
+          <v-btn text :disabled="!valid" type="submit">Login</v-btn>
         </v-card-actions>
       </v-card>
     </v-form>
